@@ -1,3 +1,3 @@
-import { Add } from './Add.js';
+import { EffectiveMerkleTree } from './EffectiveMerkleTree.js';
 
-export { Add };
+export { EffectiveMerkleTree };
