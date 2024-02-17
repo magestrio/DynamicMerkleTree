@@ -1,6 +1,4 @@
-import { Field, MerkleTree, Poseidon, Provable, assert } from 'o1js';
-import { zero } from 'o1js/dist/node/lib/gates';
-import { Worker } from 'worker_threads';
+import { Field, Poseidon } from 'o1js';
 
 export type MerkleNodesMap = {
   [level: number]: {
@@ -126,9 +124,5 @@ export class DynamicMerkleTree {
 
   get leafCount() {
     return 2n ** BigInt(this.height - 1);
-  }
-
-  public printTree() {
-    Provable.log('printTree', this.nodes);
   }
 }

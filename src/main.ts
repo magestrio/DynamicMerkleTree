@@ -1,25 +1,22 @@
 import { Field, MerkleTree, Provable, assert } from 'o1js';
+import { DynamicMerkleTree, MerkleNode } from './DynamicMerkleTree.js';
 import crypto from 'crypto';
 import { performance } from 'perf_hooks';
-import { DynamicMerkleTree, MerkleNode } from './DynamicMerkleTree.js';
 
 (async () => {
-  const effectiveMerkleTree = new DynamicMerkleTree(24);
-  // effectiveMerkleTree.setLeaves([{level: 0, index: 4n, digest: Field(4)}, {level: 0, index: 15n, digest: Field(7)}])
-  // effectiveMerkleTree.printTree();
-  // Provable.log('effectiveMerkleTree root', effectiveMerkleTree.getRoot())
+  const effectiveMerkleTree = new DynamicMerkleTree(16);
 
   const merkleTree = new MerkleTree(16);
 
   console.log('Generate nodes');
-  const nodes = generateNodes(20000, 24);
+  const nodes = generateNodes(10000, 16);
 
   console.log('test merkle tree');
   let startTime = performance.now();
 
-  // for (const node of nodes) {
-  //   merkleTree.setLeaf(node.index, node.digest);
-  // }
+  for (const node of nodes) {
+    merkleTree.setLeaf(node.index, node.digest);
+  }
 
   let endTime = performance.now();
 
