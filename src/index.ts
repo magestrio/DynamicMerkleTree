@@ -1,3 +1,3 @@
-import { EffectiveMerkleTree } from './EffectiveMerkleTree.js';
+import { DynamicMerkleTree } from './DynamicMerkleTree.js';
 
-export { EffectiveMerkleTree };
+export { DynamicMerkleTree };
